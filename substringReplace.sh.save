@@ -1,0 +1,14 @@
+#!/bin/bash
+
+################################################################################################################################################
+#Reemplazo de subcadenas, que considere diferencias entre minúsculas y mayúsculas, pero ignore acentos. Recibe dos cadenas, y cada aparición de
+#cadena1 debe reemplazarse por la cadena2.
+#Ejemplo: cadena1: tre cadena2: TRE las palabras: enTrepiso, entretenido, intrépido pasan a: enTrepiso, enTREtenido, inTREpido
+################################################################################################################################################
+
+#Este script recibe tres argumentos: $1 el texto a reemplazar, $2 el texto nuevo y $3 el nombre del archivo
+
+cp $3 "copia$3"				#crea una nueva copia para hacer los reemplazos
+sed "y/áéíóú/aeiou/" "copia$3"	#elimina los acentos
+sed -i "s/$1/$2/" "copia$3"	#reemplaza las cadenas $1 por $2 en el archivo copia$3
+exit 0
