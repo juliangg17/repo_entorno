@@ -6,9 +6,9 @@
 #Ejemplo: cadena1: tre cadena2: TRE las palabras: enTrepiso, entretenido, intrépido pasan a: enTrepiso, enTREtenido, inTREpido
 ################################################################################################################################################
 
-#Este script recibe tres argumentos: $1 el texto a reemplazar, $2 el texto nuevo y $3 el nombre del archivor los reemplazos
+#Este script recibe tres argumentos: $1 el nombre del archivo, $2 el texto original a reemplazar y $3 el texto nuevo
 
-sed 'y/áéíóú/aeiou/' $3 > temp.txt		#elimina los acentos de $3 y guarda los cambios en temp.txt
-sed "s/$1/$2/g" temp.txt 			#reemplaza las cadenas $1 por $2 en el archivo temp.txt
+sed 'y/áéíóú/aeiou/' $1 > temp.txt		#elimina los acentos de $1 y guarda los cambios en temp.txt
+sed "s/$2/$3/g" temp.txt 			#reemplaza las cadenas $2 por $3 en el archivo temp.txt
 rm temp.txt
 exit 0

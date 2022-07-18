@@ -5,13 +5,15 @@
 #Ejemplos: Mateo, Estonoesunnombre, Ana.
 ################################################################################################################################################
 
-cat $1 | sed 's/[^a-zA-Z0-9 ]//g' | tr ' ' '\n' > depurado.txt	#con sed elimina el archivo de caracteres no alfanuméricos
+cat $1 | sed 's/[^a-zA-Z0-9 ]//g' | tr ' ' '\n' > temp.txt	#con sed elimina el archivo de caracteres no alfanuméricos
 								#con tr sustituye los espacios por saltos de línea
 								#guarda los cambios en el archivo depurado.txt
 while read line; do						#${name sombrero} devuelve un string en formato Nnnnnnnn
 	name=$(echo -n $line)
 	#echo ${name^}
 	if [ $name = ${name^} ]; then echo $name; fi
-done < depurado.txt
+done < temp.txt
+
+rm temp.txt
 
 exit 0
