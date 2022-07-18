@@ -1,19 +1,29 @@
 #!/bin/bash
 
-MIN=1000
+##################################################################################################################################################
+# Indicador estadístico de longitud de palabras (la más corta, la más larga y el promedio de longitud).
+##################################################################################################################################################
 
-while read line; do
+cat $1 | sed 's/[^a-zA-Z0-9 ]//g' | tr ' ' '\n' > depurado.txt 	#con sed se eliminan todos los símbolos no alfanuméricos
+								#con tr se reemplazan los espacios por saltos de línea
+								#se guarda el archivo procesado como depurado.txt
+
+PAL_LARGA=$(cat depurado.txt | wc -L)				#wc -L devuelve el largo de la palabra más larga
+PAL_MIN=$(cat depurado.txt | head -n1 | tr -d '\n' | wc -c)	#head -n1 me devuelve la primer línea, que es la que uso para empezar a comparar
+								#con tr -d '\n' elimino el salto de línea para que no lo cuente
+								#wc -c cuenta la cantidad de caracteres
+
+while read line; do						#con este bucle comparo línea por línea para determinar la palabra más corta
 	LONG=$(echo -n $line | wc -m)
-	if [ $LONG -lt $MIN ]; then MIN=$LONG; fi
-done < $1
+	if [ $LONG -lt $PAL_MIN ] && [ $LONG -ne '0' ]; then PAL_MIN=$LONG; fi
+done < depurado.txt
 
-LINES=$(wc -l < $1)
-SUM=$(wc -c < $1)
-AVG=$((($SUM-$LINES)/$LINES))
-MAX=$(wc -L < $1)
+PALABRAS=$(cat depurado.txt | wc -w)				#wc -w me da el total de palabras del archivo
+CARACTERES=$(cat depurado.txt | wc -c)				#wc -c me da el total de caracteres de todas las palabras del archivo
+PROMEDIO=$((($CARACTERES)/$PALABRAS))
 
-echo "La palabra más larga tiene $MAX caracteres"
-echo "La palabra más corta tiene $MIN caracteres"
-echo "El largo promedio de las palabras es de $AVG caracteres"
+echo "La palabra más larga tiene $PAL_LARGA caracteres"
+echo "La palabra más corta tiene $PAL_MIN caracteres"
+echo "El largo promedio de las palabras es de $PROMEDIO caracteres"
 
 exit 0
