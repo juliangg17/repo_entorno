@@ -1,0 +1,10 @@
+FROM debian
+
+MAINTAINER Estudiante TUIA - EDP
+
+RUN apt-get update
+RUN rm -rf /var/lib/apt/lists/*
+
+ADD ["","/home/repo_entorno"]
+
+#ENTRYPOINT ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
