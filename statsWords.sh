@@ -4,6 +4,12 @@
 # Indicador estadístico de longitud de palabras (la más corta, la más larga y el promedio de longitud).
 ##################################################################################################################################################
 
+echo "Este programa devuelve la longitud de palabras de un archivo de texto (la más corta, la más larga y el promedio de longitud)."
+echo "¿Desea seguir? [S/N]"
+
+
+
+
 cat $1 | sed 's/[^a-zA-Z0-9 ]//g' | tr ' ' '\n' > temp.txt 	#con sed se eliminan todos los símbolos no alfanuméricos
 								#con tr se reemplazan los espacios por saltos de línea
 								#se guarda el archivo procesado como temp.txt
