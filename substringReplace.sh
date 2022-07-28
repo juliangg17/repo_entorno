@@ -23,9 +23,13 @@ case $RESP in
 
         echo "Ingrese el nombre del archivo que desea procesar:"
         read ARCHIVO
+        echo "Ingrese el texto original a reemplazar:"
+        read TXTORIG
+        echo "Ingrese el texto nuevo:"
+        read TXTNUE
 
 	sed 'y/áéíóú/aeiou/' $ARCHIVO > temp.txt		#elimina los acentos de $1 y guarda los cambios en temp.txt
-	sed "s/$2/$3/g" temp.txt 				#reemplaza las cadenas $2 por $3 en el archivo temp.txt
+	sed "s/$TXTORIG/$TXTNUE/g" temp.txt 			#reemplaza las cadenas $2 por $3 en el archivo temp.txt
 	rm temp.txt
 	exit 0
 ;;
