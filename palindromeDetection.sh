@@ -6,7 +6,7 @@
 
 sed 'y/áéíóú/aeiou/' $1 > temp.txt 			#elimina los acentos
 
-cat temp.txt | sed 's/[^a-zA-Z0-9 ]//g' | tr [:upper:] [:lower:] | tr ' ' '\n' | tr -s '\n' '\n'> temp2.txt
+cat temp.txt | sed 's/[^a-zA-Z ]//g' | tr [:upper:] [:lower:] | tr ' ' '\n' | tr -s '\n' '\n'> temp2.txt
 
 #arriba elimina los caracteres no alfanuméricos, pasa todo a minúsculas, pone una palabra por línea y borra los saltos de línea vacíos
 

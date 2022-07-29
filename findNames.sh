@@ -21,7 +21,7 @@ case $RESP in
         echo "Ingrese el nombre del archivo que desea procesar:"
         read ARCHIVO
 
-	cat $ARCHIVO | sed 's/[^a-zA-Z0-9 ]//g' | tr ' ' '\n' > temp.txt	#con sed elimina el archivo de caracteres no alfanuméricos
+	cat $ARCHIVO | sed 's/[^a-zA-Z ]//g' | tr ' ' '\n' > temp.txt	#con sed elimina el archivo de caracteres no alfanuméricos
 										#con tr sustituye los espacios por saltos de línea
 										#guarda los cambios en el archivo depurado.txt
 	while read line; do							#${name sombrero} devuelve un string en formato Nnnnnnnn
