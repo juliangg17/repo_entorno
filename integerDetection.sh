@@ -11,6 +11,7 @@
 
 #grep  "^[0-9]*$" listado.txt | tr ', ' '\n' | sort | uniq
 
-cat listado.txt | tr ', ' '\n' | grep "^[0-9]*$" | sort | uniq
+cat $1 | tr ', ' '\n' | sed 's/[^0-9]//g'| tr -s '\n' '\n' | uniq | sort
+
 exit 0
 	
