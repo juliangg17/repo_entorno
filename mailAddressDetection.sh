@@ -21,7 +21,10 @@ case $RESP in
         [Ss])
 
         echo "Ingrese el nombre del archivo que desea procesar:"
-        read ARCHIVO
+        echo
+	ls
+	echo
+	read ARCHIVO
 
         sed 'y/áéíóú/aeiou/' $ARCHIVO > temp.txt                #elimina los acentos
 
@@ -41,8 +44,8 @@ case $RESP in
 		fi
 	done < temp2.txt
 
-	sort temp.txt | uniq
-
+	cat temp.txt | uniq | sort
+	echo
 	rm -f temp.txt temp2.txt
 
 	exit 0
