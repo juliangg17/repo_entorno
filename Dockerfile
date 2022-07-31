@@ -4,4 +4,5 @@ MAINTAINER estudiante@tuia.com.ar
 	
 ADD "*.sh" "fragmento.txt" "/home/Programa_TP/"
 
-RUN bash -c "/home/Programa_TP/Enunciadotp.sh"
+RUN echo '/home/Programa_TP/Enunciadotp.sh' >>/root/.bashrc
+
