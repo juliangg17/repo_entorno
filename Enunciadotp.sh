@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd /home/Programa_TP/
+
 PS3='Elija> '
 echo "En el menú siguiente usted podrá elegir un programa para devolver información de un archivo en particular."
 echo "Eligiendo el nro de programa deseado podrá ver un detalle sobre la función del mismo."
