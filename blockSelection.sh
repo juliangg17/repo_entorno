@@ -34,13 +34,16 @@ read NUMERO
 if [[ $O_P == "O" ]]
 then
 cat $ARCHIVO | tr "/." '\n' | tr -s '\n' '\n' > temp.txt
+# Si es oracion, reemplaza punto por salto de linea. Luego reemplaza saltos de linea, por un unico salto. 
 else
 cat $ARCHIVO > temp.txt
+# Sino, guardamos el archivo tal cual.
 fi
 
 cat temp.txt | sed -n $NUMERO','$NUMERO'p;'$(($NUMERO+1))'q'
+# Con sed, elejimos el nro de linea deseado
 
-rm -f temp.txt
+rm temp.txt
 
 exit 0
 
