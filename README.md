@@ -37,7 +37,7 @@ Este repositorio, contiene 15 scripts en Bash y un Dockerfile que luego de emple
 [https://git-scm.com/book/en/v2/Getting-Started-Installing-Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git "://git-scm.com/book/en/v2/Getting-Started-Installing-Git")
 
 
-## Como usarlo
+## Cómo usarlo
 
 
 En primera instancia debemos chequear el apartado DEPENDENCIAS. En caso de no contar con alguna de estas en el equipo que se quiera correr el programa, podremos encontrar su respectivo instructivo y dirección de descarga en el apartado LINKS.
