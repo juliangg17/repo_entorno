@@ -4,7 +4,7 @@
 #Mostrar palabras palíndromo (ignorar mayúsculas/minúsculas y acentos en este caso). Ejemplos: Neuquén, radar, reconocer
 #################################################################################################################################################
 
-echo "Este programa muestra las palabras palíndromo (por ej. Nuequén o radar)."
+echo "Este programa muestra las palabras palíndromo (por ej. Neuquén o radar)."
 echo "¿Desea seguir? [S/N]"
 read RESP
 

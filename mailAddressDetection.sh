@@ -21,11 +21,9 @@ case $RESP in
         [Ss])
 
         echo "Ingrese el nombre del archivo que desea procesar:"
-        echo
-	ls
 	echo
 	read ARCHIVO
-
+	echo
         sed 'y/áéíóú/aeiou/' $ARCHIVO > temp.txt                #elimina los acentos
 
         cat temp.txt | tr [:upper:] [:lower:] | tr ' ' '\n' | tr -s '\n' '\n' > temp2.txt

@@ -6,7 +6,7 @@
 # ignorar letras acentuadas).
 ######################################################################################################################################
 
-echo "Este programa muestra lexicográficamente las palabras que se presentan con todas sus letras en mayúsculas sin repetirlas"
+echo "Este programa retorna palabras que tengan una sola vocal diferente y más de tres letras. Ordenadas lexicográficamente y sin repetir"
 echo "¿Desea seguir? [S/N]"
 read RESP
 
@@ -28,7 +28,7 @@ case $RESP in
 	rm temp.txt
 
 	grep -v "[aeio]" temp2.txt >> temp3.txt					# Guardo todas las palabras que no contengan a,e,i,o
-	grep -v "[aeiu]" temp2.txt >> temp3.txt
+	grep -v "[aeiu]" temp2.txt >> temp3.txt					# Se repite la misma lógica en todas las lineas
 	grep -v "[aeou]" temp2.txt >> temp3.txt
 	grep -v "[aiou]" temp2.txt >> temp3.txt
 	grep -v "[eiou]" temp2.txt >> temp3.txt
@@ -47,7 +47,7 @@ case $RESP in
 
 	done < temp2.txt
 
-	grep "[aeiou]" temp3.txt 						# Devuelvo solo las palabras que tienen vocales
+	grep "[aeiou]" temp3.txt 						# Devuelvo solo las palabras que tienen al menos una vocal
 	rm temp3.txt temp2.txt
 
 	exit 0

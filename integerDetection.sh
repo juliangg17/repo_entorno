@@ -23,7 +23,7 @@ case $RESP in
 	echo "Ingrese el nombre del archivo que desea procesar" 
 	read ARCHIVO
 
-	cat $ARCHIVO | tr ', ' '\n' | sed 's/[^0-9]//g'| tr -s '\n' '\n' | uniq | sort
+	cat $ARCHIVO | tr ', ' '\n' | sed 's/[^0-9]//g' | tr -s '\n' '\n' | uniq | sort -n
 
 	exit 0
 

@@ -21,13 +21,13 @@ case $RESP in
         echo "Ingrese el nombre del archivo que desea procesar:"
         read ARCHIVO
 
-	cat $ARCHIVO | sed 's/[^a-zA-Z ]//g' | tr ' ' '\n' > temp.txt	#con sed elimina el archivo de caracteres no alfanuméricos
+	cat $ARCHIVO | sed 's/[^a-zA-Z ]//g' | tr ' ' '\n' | tr -s '\n' '\n' > temp.txt	#con sed elimina el archivo de caracteres no alfanuméricos
 										#con tr sustituye los espacios por saltos de línea
 										#guarda los cambios en el archivo depurado.txt
 	while read line; do							#${name sombrero} devuelve un string en formato Nnnnnnnn
-		name=$(echo -n $line)
-		#echo ${name^}
-		if [ $name = ${name^} ]; then echo $name; fi
+		LONG=$(echo -n $line | wc -c)					#${name sombrero sombrero} pone todo mayúsculas
+		name=$(echo -n $line)				
+		if [[ $name = ${name^} && $name != ${name^^} && $LONG -gt 1 ]]; then echo $name; fi #
 	done < temp.txt
 
 	rm temp.txt

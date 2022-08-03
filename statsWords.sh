@@ -36,7 +36,7 @@ case $RESP in
 
 	PALABRAS=$(cat temp.txt | wc -w)				#wc -w me da el total de palabras del archivo
 	CARACTERES=$(cat temp.txt | wc -c)				#wc -c me da el total de caracteres de todas las palabras del archivo
-	PROMEDIO=$((($CARACTERES)/$PALABRAS))
+	PROMEDIO=$((($CARACTERES-$PALABRAS)/$PALABRAS))
 
 	rm temp.txt
 
